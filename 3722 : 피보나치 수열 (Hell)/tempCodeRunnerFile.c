@@ -1,0 +1,1 @@
+printf("%lld", DT[n-1]);
