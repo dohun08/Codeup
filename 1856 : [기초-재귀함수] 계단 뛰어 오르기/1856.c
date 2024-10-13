@@ -1,18 +1,10 @@
 #include <stdio.h>
-int d[10000]={};
+int memo[10000]={0, 1, 2, 4};
 int f(int n){
-    if(n==1){
-        return 1;
+    if(!memo[n]){
+        return memo[n] = f(n-3) + f(n-2) + f(n-1);
     }
-    else if(n==2){
-        return 2;
-    }
-    else if(n==3){
-        return 4;
-    }
-    else{
-        return f(n-1) + f(n-2) + f(n-3);
-    }
+    return memo[n];
 }
 int main(){
     int n;
